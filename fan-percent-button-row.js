@@ -212,9 +212,9 @@ class CustomFanPercentRow extends LitElement {
 			medSetpoint = parseInt(MedSetpoint);
 			hiSetpoint = parseInt(HiSetpoint);
 			if (stateObj && stateObj.attributes) {
-				if (stateObj.state == 'on' && stateObj.attributes.percentage > offSetpoint && stateObj.attributes.percentage <= medSetpoint) {
+				if (stateObj.state == 'on' && stateObj.attributes.percentage > offSetpoint && stateObj.attributes.percentage < medSetpoint) {
 					low = 'on';
-				} else if (stateObj.state == 'on' && stateObj.attributes.percentage > medSetpoint && stateObj.attributes.percentage < hiSetpoint) {
+				} else if (stateObj.state == 'on' && stateObj.attributes.percentage >= medSetpoint && stateObj.attributes.percentage < hiSetpoint) {
 					med = 'on';
 				} else if (stateObj.state == 'on' && stateObj.attributes.percentage >= hiSetpoint) {
 					high = 'on';

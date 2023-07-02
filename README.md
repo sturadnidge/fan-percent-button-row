@@ -1,32 +1,13 @@
 # Fan Percent Button Row
 Provides a means to program 2 or 3 preset speed percentage settings for fans selectable from a Lovelace button row.
 
-## NOTE: You must be on Home Assistant V2021.3.X or higher to use this plug-in. However, if your fan integration hasn't been updated to the new control method (if it doesn't actually use percentages for speeds but still uses a speed list) then you need to use the fan-control-entity-row.
+## NOTE: You must be on Home Assistant V2021.3.X or higher to use this plug-in, and your fan integration must use percentages for speeds
 
 Installation:
 
-***
+Copy the fan-percent-button-row.js file into `/config/www/` directory (i.e. the Home Assistant Configuration directory).
 
-**NOTE:**
-
-For some reason there is a big backlog of requests to add repositories as defaulkt in HACS. Hopefully it gets resolved soon.
-
-In the meantime, you can still add this as a custom repository in HACS.
-
-Open HACS. Click on one of the sub-headings (integration, frontend, etc) then click the three dots in the top right of the HACS page and copy the URL for the main repo in there at the bottom. Select plugin as the type. It should show up in HACS to be able to be installed at that point.
-
-***
-
-The easiest way to install this is to use the Home Assistant Community Store (HACS) in Home Assistant.
-
-Follow the instructions there for installation making sure you note the "url:" section for the resources addition.
-
-
-Conversely, if you don't use HACS you can install it manually by performing the following:
-
-Copy the fan-percent-button-row.js file to the appropriate folder in your Home Assistant Configuration directory (/config/www/).
-
-Place the following in your "resources" section in your lovelace configuration (updating the location to where you placed the above file):
+Place the following in your "resources" section in your lovelace configuration:
 
   ```
     - url: /local/fan-percent-button-row.js

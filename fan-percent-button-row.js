@@ -23,9 +23,9 @@ class CustomFanPercentRow extends LitElement {
 			sendStateWithSpeed: false,
 			allowDisablingButtons: true,
 			offPercentage: 0,
-			lowPercentage: 33,
-			medPercentage: 66,
-			hiPercentage: 100,
+			lowPercentage: 10,
+			medPercentage: 20,
+			hiPercentage: 50,
 			width: '30px',
 			height: '30px',
 			isOffColor: '#f44c09',
@@ -207,16 +207,16 @@ class CustomFanPercentRow extends LitElement {
 				}
 			}
 		} else {
-			offSetpoint = 0 //parseInt(OffSetpoint);
-			lowSetpoint = 33 //parseInt(LowSetpoint);
-			medSetpoint = 66 //parseInt(MedSetpoint);
-			hiSetpoint = 100 //parseInt(HiSetpoint);
+			offSetpoint = parseInt(OffSetpoint);
+			lowSetpoint = parseInt(LowSetpoint);
+			medSetpoint = parseInt(MedSetpoint);
+			hiSetpoint = parseInt(HiSetpoint);
 			if (stateObj && stateObj.attributes) {
-				if (stateObj.state == 'on' && stateObj.attributes.percentage >= 17 && stateObj.attributes.percentage <= 50) {
+				if (stateObj.state == 'on' && stateObj.attributes.percentage > offSetpoint && stateObj.attributes.percentage <= medSetpoint) {
 					low = 'on';
-				} else if (stateObj.state == 'on' && stateObj.attributes.percentage >= 51 && stateObj.attributes.percentage <= 75) {
+				} else if (stateObj.state == 'on' && stateObj.attributes.percentage > medSetpoint && stateObj.attributes.percentage < hiSetpoint) {
 					med = 'on';
-				} else if (stateObj.state == 'on' && stateObj.attributes.percentage >= 76 && stateObj.attributes.percentage <= 100) {
+				} else if (stateObj.state == 'on' && stateObj.attributes.percentage >= hiSetpoint) {
 					high = 'on';
 				} else {
 					offstate = 'on';
